@@ -392,21 +392,15 @@ class DataFrame(ABC):
 
     @abstractmethod
     def __dataframe__(
-        self, nan_as_null: bool = False, allow_copy: bool = True
+        self, allow_copy: bool = True
     ) -> "DataFrame":
         """
         Construct a new exchange object, potentially changing the parameters.
 
-        ``nan_as_null`` is a DEPRECATED keyword that should not be used. See warning
-        below.
         ``allow_copy`` is a keyword that defines whether or not the library is
         allowed to make a copy of the data. For example, copying data would be
         necessary if a library supports strided buffers, given that this protocol
         specifies contiguous buffers.
-
-        WARNING: the ``nan_as_null`` parameter will be removed from the API protocol.
-        Please avoid passing it as either a positional or keyword argument. Call this
-        method using ``.__dataframe__(allow_copy=...)``.
         """
         pass
 
